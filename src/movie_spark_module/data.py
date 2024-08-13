@@ -7,8 +7,6 @@ def re_partition(load_dt):
     write_path = f'{home_dir}/data/movie/repartition/'
     df = pd.read_parquet(read_path)
     df['load_dt'] = load_dt
-    if(os.path.exists(f"{write_path}/load_dt={load_dt}"):
-            os.remove(f"{write_path}/load_dt={load_dt}")
     df.to_parquet("~/data/movie/repartition/", partition_cols=['load_dt','multiMovieYn', 'repNationCd'])
 
 
